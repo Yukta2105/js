@@ -38,19 +38,55 @@ const myFunction = function(){
 console.log(typeof heroes); //output is object and reason is All arrays are special type of objects, but not all objects are arrays.
 console.log(typeof myFunction); //output = Function
 
+// +++++++++++++++++++++++++++++++++++++++++++++++++++
 
+//memory are of two types : stack and heap
 
+// Stack (used for Primitive type data), Heap(used for referential data)
+//in stack whatever memory is declared is considered as copy.
 
+//while in heap when the memory is declared it references to original variable thus the changes occur to original variables
 
+let myYoutubename = "yuktadotcom"
 
+let anothername = myYoutubename
+anothername = "Yuki the storyteller"
 
+console.log(myYoutubename); //output = yuktadotcom
+console.log(anothername); //output = Yuki the storyteller
 
+//the above example is of stack which in practical changes the value of copied variable anothername even though it already was declared to be equal to myYoutubename
 
+let userOne = {
+    email: "yukta@gmail.com",
+    upi: "user@sbi"
+}
 
+let userTwo = userOne
 
+userTwo.email = "user@gmail.com"
 
+console.log(userOne.email); //output = user@gmail.com
+console.log(userTwo.email); //output = user@gmail.com
 
+//in the above example of heap we can see first that we used object as variable here , second thing is that if we wrote that userTwo = userOne then even if we gave different value of userOne email, it still changed to the new value of userTwo
+//thus we can conclude that the variable always declares the value that references to the new value
 
+// the diagram for more understanding are as follows:
+//  STACK                                   HEAP
+// ───────────────                         ─────────────────────────
+
+// ┌──────────────┐                        ┌──────────────────────────┐
+// │ userTwo      |----------------------->│ {                        │
+// ├──────────────┤  both references to    │  email: "user@google.com"│
+// │ userOne      │----------------------->│  upi:   "user@ybl"       │
+// ├──────────────┤                        │ }                        │
+// │ myYoutube    │ → "yuktadotcom"        └──────────────────────────┘
+// ├──────────────┤
+// │ anotherName  │ → "Yuki the storyteller"
+// ├──────────────┤
+// │ myYoutube    │ → "yuktadotcom"
+// └──────────────┘
 
 
 
